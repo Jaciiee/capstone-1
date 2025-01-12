@@ -10,6 +10,7 @@ import { Tags } from '@/components/Tags';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { ProfileRow } from '@/components/Profile';
 import { TextLink } from '@/components/Link';
+import { RewardCard, RewardMiniCard, RewardsRow, RewardDate } from '@/components/RewardCardItem';
 
 const KidsSummary = () => (
   <View style={styles.container}>
@@ -56,6 +57,7 @@ export default function HomePage() {
         <>
           <View style={styles.container}>
             <ProfileRow img={require('@/assets/images/profile.png')} name={'Randolf Wesely'} />
+            <RewardsRow savertype={'Gold Saver'} rewardsAmt={'2 Rewards'}/>
 
             <Row>
               <Card
@@ -73,7 +75,7 @@ export default function HomePage() {
                 title={
                   <Row>
                     <Ionicons style={styles.cardIcon} name="card-outline" size={18} color="white" />
-                    Total Spent
+                    Wallet
                   </Row>
                 }
                 description="$1,252"

@@ -43,7 +43,7 @@ export default function RewardsPage() {
         <>
           <View style={styles.container}>
             <ProfileRow img={require('@/assets/images/profile.png')} name={'Randolf Wesely'} />
-            <RewardsRow savertype={'Gold Saver'} rewardsAmt={'2 Rewards'}/>
+            {/* <RewardsRow savertype={'Gold Saver'} rewardsAmt={'2 Rewards'}/> */}
 
             <RewardCard>
                 <Text style={styles.cardHeaderText}>Rewards Shop</Text>
