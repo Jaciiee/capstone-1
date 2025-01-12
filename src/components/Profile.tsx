@@ -88,5 +88,5 @@ export const ProfileListItem = ({ img, name, email}: { img?:any; name:string; em
             </View>
         </Row>
       </View>
-   )
+   ) 
 };

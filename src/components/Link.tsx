@@ -27,7 +27,7 @@ export const TextLink =  ({ title, url, icon, type, page, className}: {title?:an
                     <View style={className}>
                         {title}
                         {icon}
-                    </View>
+                    </View> 
                 </TouchableOpacity>
             ) : url ? (
 
