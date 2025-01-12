@@ -14,7 +14,7 @@ import { RewardCard, RewardMiniCard, RewardsRow, RewardDate } from '@/components
 
 import CircularProgress from 'react-native-circular-progress-indicator';
 
-const MiniCardInfo = ({split, chart} : {split?:boolean, chart?:boolean}) => (
+const MiniCardInfo = ({split} : {split?:boolean, chart?:boolean}) => (
 	<>
 	{!split && (
       <View style={styles.rewardMiniCardRow}>
@@ -22,69 +22,15 @@ const MiniCardInfo = ({split, chart} : {split?:boolean, chart?:boolean}) => (
       </View>
     )}
 	
-	<View style={styles.rewardMiniCardRow}>
-	<Tags className={styles.purpleTag} text={ 'Setting Goals'} marginClass={styles.addRightMargin}/>
-	<Tags className={styles.blueTag} text={ 'Saving Regularly'} marginClass={styles.addRightMargin}/>
-	</View>
+	
 	
 	<View style={styles.rewardMiniCardRow}>
-	<Text style={styles.headerText}>Save for a Toy</Text>
-	<Text style={styles.miniCardSubText}>Learn how to save money for something you want.</Text>
+		<Text style={styles.headerText}>Trip to Sentosa!</Text>
+		<Text style={styles.miniCardSubText}>A family trip to sentosa over the weekends!</Text>
 	</View> 
-	
 	<View style={styles.rewardMiniCardRow}>
-		{chart ? (
-			<Column>
-				<View style={styles.rewardMiniCardRow}>
-				<ProfileIconsContainer count={4}>
-					<ProfileIcons img={require('@/assets/images/profile.png')} className={styles.rewardImg} />
-					<ProfileIcons img={require('@/assets/images/profile.png')} className={styles.rewardImg} />
-				</ProfileIconsContainer>
-				</View>
-
-				<View style={styles.rewardMiniCardRow}>
-				<RewardDate date={'SAT, 14 DEC'} />
-				</View>
-			</Column>
-		) : (
-			<>
-			<View style={styles.rewardMiniCardRow}>
-				<ProfileIconsContainer count={4}>
-					<ProfileIcons img={require('@/assets/images/profile.png')} className={styles.rewardImg} />
-					<ProfileIcons img={require('@/assets/images/profile.png')} className={styles.rewardImg} />
-				</ProfileIconsContainer>
-				</View>
-
-				<View style={styles.rewardMiniCardRow}>
-					<RewardDate date={'SAT, 14 DEC'} />
-				</View>
-			</>
-		)}
-
-
-		<Column>
-			{chart && (
-				<View stlye={styles.progressContainer} >
-					<CircularProgress 
-						value={75}
-						inActiveStrokeColor={'#CDD9E3'}
-						inActiveStrokeOpacity={0.3}
-						progressValueColor={'black'}
-						activeStrokeWidth={15}
-						activeStrokeColor={'#277AD9'}
-						inActiveStrokeWidth={15}
-						valueSuffix={'%'}
-						showProgressValue={false}
-						/> 
-
-						<View style={styles.textContainer}>
-							<Text style={styles.textValue}>
-								75<Text style={styles.textSuffix}>%</Text>
-							</Text>
-						</View>
-				</View>
-			)}
-		</Column>
+		<Tags className={styles.purpleTag} text={ 'Experiences'} marginClass={styles.addRightMargin}/>
+		<Tags className={styles.greenTag} text={ '$1500'} marginClass={styles.addRightMargin}/>
 	</View>
 	</>
 );
@@ -100,14 +46,7 @@ export default function RewardsPage() {
             <RewardsRow savertype={'Gold Saver'} rewardsAmt={'2 Rewards'}/>
 
             <RewardCard>
-                <Text style={styles.cardHeaderText}>Current Tasks</Text>
-                <Row>
-					<RewardMiniCard>
-						<MiniCardInfo chart/>
-					</RewardMiniCard>
-                </Row>
-				
-				<Text style={styles.cardHeaderText}>Redeem Your Rewards</Text>
+                <Text style={styles.cardHeaderText}>Rewards Shop</Text>
                 <Row>
 					<RewardMiniCard small>
 						<MiniCardInfo split/>
@@ -121,7 +60,6 @@ export default function RewardsPage() {
 				<TextLink title={'View All Rewards'} icon={<Ionicons name="chevron-forward-outline" size={20}/>} url={'https://www.google.com'} />
             </RewardCard>
           </View>
-          
         </>
       }
     />

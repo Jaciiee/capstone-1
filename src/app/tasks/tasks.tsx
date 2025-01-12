@@ -17,21 +17,22 @@ import CircularProgress from 'react-native-circular-progress-indicator';
 
 const MiniCardInfo = ({split, chart} : {split?:boolean, chart?:boolean}) => (
 	<>
-	{!split && (
+	{/* {!split && (
       <View style={styles.rewardMiniCardRow}>
         <Text style={styles.rewardTag}>Get 500 Points</Text>
       </View>
-    )}
-	
+    )} */}
+
 	<View style={styles.rewardMiniCardRow}>
-	<Tags className={styles.purpleTag} text={ 'Setting Goals'} marginClass={styles.addRightMargin}/>
-	<Tags className={styles.blueTag} text={ 'Saving Regularly'} marginClass={styles.addRightMargin}/>
-	</View>
-	
-	<View style={styles.rewardMiniCardRow}>
-	<Text style={styles.headerText}>Save for a Toy</Text>
-	<Text style={styles.miniCardSubText}>Learn how to save money for something you want.</Text>
+	<Text style={styles.headerText}>Clean up your room</Text>
+	<Text style={styles.miniCardSubText}>Be a good boy and clean up your room</Text>
 	</View> 
+
+	<View style={styles.rewardMiniCardRow}>
+	<Tags className={styles.purpleTag} text={ 'Difficulty: Easy' } marginClass={styles.addRightMargin}/>
+	<Tags className={styles.greenTag} text={ 'Rewards: $10' } marginClass={styles.addRightMargin}/>
+	<Tags className={styles.blueTag} text={ 'Status: New' } marginClass={styles.addRightMargin}/>
+	</View>
 	
 	<View style={styles.rewardMiniCardRow}>
 		{chart ? (
@@ -61,31 +62,6 @@ const MiniCardInfo = ({split, chart} : {split?:boolean, chart?:boolean}) => (
 				</View>
 			</>
 		)}
-
-
-		<Column>
-			{chart && (
-				<View stlye={styles.progressContainer} >
-					<CircularProgress 
-						value={75}
-						inActiveStrokeColor={'#CDD9E3'}
-						inActiveStrokeOpacity={0.3}
-						progressValueColor={'black'}
-						activeStrokeWidth={15}
-						activeStrokeColor={'#277AD9'}
-						inActiveStrokeWidth={15}
-						valueSuffix={'%'}
-						showProgressValue={false}
-						/> 
-
-						<View style={styles.textContainer}>
-							<Text style={styles.textValue}>
-								75<Text style={styles.textSuffix}>%</Text>
-							</Text>
-						</View>
-				</View>
-			)}
-		</Column>
 	</View>
 	</>
 );
@@ -111,25 +87,14 @@ export default function TasksPage() {
 			</Row>
 
 			<Row>
-				<RewardMiniCard small>
-					<MiniCardInfo split/>
-				</RewardMiniCard>
-
-				<RewardMiniCard small>
-					<MiniCardInfo split/>
-				</RewardMiniCard>
-			</Row>
-
-			<Text style={styles.cardHeaderText}>Tasks Details</Text>
-			<Row>
 				<RewardMiniCard>
-					<MiniCardInfo split chart/>
+					<MiniCardInfo/>
 				</RewardMiniCard>
 			</Row>
 
 			<Row>
 				<RewardMiniCard>
-					<MiniCardInfo split chart/>
+					<MiniCardInfo/>
 				</RewardMiniCard>
 			</Row>
              
