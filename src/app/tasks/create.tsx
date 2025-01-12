@@ -15,6 +15,22 @@ import { RewardCard, RewardMiniCard, RewardsRow, RewardDate } from '@/components
 import CircularProgress from 'react-native-circular-progress-indicator';
 import { Inputs } from '@/components/Inputs';
 
+import axios from 'axios';
+
+const generate_tasks = async () => {
+    try {
+      const response = await axios.get('http://192.168.50.206:8000/api/genTask/');
+      if (response.status === 200) {
+        const data = response.data;
+		console.log(data);
+      } else {
+        console.error('Failed to fetch tasks:', response.status);
+      }
+    } catch (error) {
+      console.error('Error generating tasks:', error);
+    }
+  };
+
 const FieldsSummry = () => (
 	<>
 	<Inputs
@@ -25,11 +41,10 @@ const FieldsSummry = () => (
 			/>
 
 	<Inputs title="Task Name" fieldType="text" required={true} placeholder='Needs vs. Wants' />
-	<Inputs title="Reward" fieldType="number" required={true} placeholder='50' />
+	<Inputs title="Reward Amount" fieldType="number" required={true} placeholder='50' />
 	<Inputs title="Details" fieldType="textarea" required={true} placeholder='Understand the difference between needs and wants.'  />
-	<Inputs title="Tags" fieldType="text" required={true} placeholder='Critical thinking, Financial priorities' />
-	<Inputs title="Duration" fieldType="slider" required={true} min={1} max={30}step={1} />
-	<Inputs title="Approved?" fieldType="toggle" required={true} />
+	<Inputs title="Difficulty" fieldType="text" required={true} placeholder='Easy' />
+	<TextLink type={'button'} className={styles.orangeBtn} title={'Generate Task'} onPress={generate_tasks} />
 	<TextLink type={'button'} className={styles.purpleBtn} title={'Create Task'} url={'/tasks/create'} />
 	</>
 )

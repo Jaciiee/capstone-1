@@ -7,10 +7,28 @@ import { useRouter } from 'expo-router';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import styles from '@/constants/styles';
 
-export const TextLink =  ({ title, url, icon, type, page, className}: {title?:any; url?:any; icon?:any; type?:any, page?:boolean; className?:any}) => {
+export const TextLink =  ({ 
+    title, 
+    url, 
+    icon, 
+    type, 
+    page, 
+    className,
+    onPress,
+}: {
+        title?:any; 
+        url?:any; 
+        icon?:any; 
+        type?:any; 
+        page?:boolean; 
+        className?:any;
+        onPress?: () => void;
+    }) => {
     const router = useRouter();
     const handlePress = () => {
-        if (url) {
+        if (onPress) {
+            onPress();
+        } else if (url) {
             Linking.openURL(url).catch(err => console.error("Failed to open URL:", err));
         }
     };
@@ -22,15 +40,14 @@ export const TextLink =  ({ title, url, icon, type, page, className}: {title?:an
 
     return (   
         <View style={styles.LinkContainer}>
-            {type === 'button' && url ? (
-                <TouchableOpacity onPress={page ? navigateToPage : handlePress}>
+            {type === 'button' ? (
+                <TouchableOpacity onPress={page && url ? navigateToPage : handlePress}>
                     <View style={className}>
                         {title}
                         {icon}
                     </View> 
                 </TouchableOpacity>
             ) : url ? (
-
                 <TouchableOpacity onPress={handlePress}>
                     <Text style={styles.linkText}>
                         {title}
@@ -39,6 +56,5 @@ export const TextLink =  ({ title, url, icon, type, page, className}: {title?:an
                 </TouchableOpacity>
             ) : null}
         </View>
-
     );
 };

@@ -962,8 +962,25 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontFamily: 'Inter_700Bold',
     fontSize: 20,
+    marginVertical: 10,
   },
-  
+
+  orangeBtn: {
+    backgroundColor:'#FF9D23',
+    paddingHorizontal: 25,
+    paddingVertical: 20,
+    color:'white',
+    borderRadius: 55,
+    flex: 1,
+    justifyContent:'center',
+    alignContent: 'center',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontFamily: 'Inter_700Bold',
+    fontSize: 20,
+    marginVertical: 10,
+  },
+
   profileList: {
     backgroundColor: '#EEEEEE',
     paddingVertical:15, 
